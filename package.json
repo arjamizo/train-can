@@ -1,0 +1,11 @@
+{
+  "volta": {
+    "node": "18.19.0"
+  },
+  "dependencies": {
+    "parcel": "^2.7.0"
+  },
+  "@parcel/resolver-default": {
+    "packageExports": true
+  }
+}

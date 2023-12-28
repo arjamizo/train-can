@@ -1,0 +1,40 @@
+<div style="display: none">ą</div>
+<link rel="stylesheet" href="train.css">
+<!-- <script2 src="https://cdn.tailwindcss.com"></script2> -->
+
+<body>
+<div class="box"></div>
+
+<script type="module">
+'no strict';
+  class App {
+    mount(el) {
+      const self = this
+      // with(document) {
+        el = Object.assign(document.createElement('div'))
+        el.innerHTML = `
+          123
+        `
+        document.body.appendChild(el)
+        self.el = el
+      // }
+      return {
+        after(t, cb) {
+          // setTimeout(cb.bind(this), t)
+          // setTimeout(cb, t, this)
+          setTimeout(cb.bind(self), t)
+          return Promise.resolve(this)
+        },
+        this: this
+      }
+    }
+    unmount() {
+      document.body.removeChild((setTimeout(()=>this.el=undefined,0),this.el))
+    }
+  }
+  new App().mount().after(1e3, function() {if(0) debugger; this.unmount()})
+</script>
+
+<script src="./canlib.js" type="module"></script>
+
+<meta charset="utf-8"/>
