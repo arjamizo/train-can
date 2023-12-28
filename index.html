@@ -1,0 +1,44 @@
+<div style="display: none">ą</div>
+<link rel="stylesheet" href="/train-can.b0b6ef69.css">
+<!-- <script2 src="https://cdn.tailwindcss.com"></script2> -->
+
+<body>
+<div class="box"></div>
+
+<script type="module">"no strict";
+class $1e9d316ad7bd2a45$var$App {
+    mount(el) {
+        const self = this;
+        // with(document) {
+        el = Object.assign(document.createElement("div"));
+        el.innerHTML = `
+          123
+        `;
+        document.body.appendChild(el);
+        self.el = el;
+        // }
+        return {
+            after (t, cb) {
+                // setTimeout(cb.bind(this), t)
+                // setTimeout(cb, t, this)
+                setTimeout(cb.bind(self), t);
+                return Promise.resolve(this);
+            },
+            this: this
+        };
+    }
+    unmount() {
+        document.body.removeChild((setTimeout(()=>this.el = undefined, 0), this.el));
+    }
+}
+new $1e9d316ad7bd2a45$var$App().mount().after(1e3, function() {
+    this.unmount();
+});
+
+
+</script>
+
+<script src="/train-can.40c18416.js" type="module"></script>
+
+<meta charset="utf-8">
+</body>
